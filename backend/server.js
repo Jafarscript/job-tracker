@@ -6,7 +6,10 @@ import jobRoutes from "./routes/job.js"
 
 dotenv.config()
 const app = express();
-app.use(cors())
+app.use(cors({
+  origin: "https://job-tracker-three-steel.vercel.app/"
+}))
+
 app.use(express.json())
 
 app.get('/', (req, res) => {

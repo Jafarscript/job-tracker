@@ -207,16 +207,17 @@ function App() {
         </div>
       </form>
 
-      <table className="w-full overflow-scroll">
+      <div className="w-full overflow-x-auto mt-6 border rounded-lg">
+      <table className="w-full min-w-200">
         <thead>
-          <tr>
-            <th>Company</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Date Applied</th>
-            <th>Link</th>
-            <th>Notes</th>
-            <th>Action</th>
+          <tr className="whitespace-nowrap">
+            <th className="py-3 px-2">Company</th>
+            <th className="py-3 px-2">Role</th>
+            <th className="py-3 px-2">Status</th>
+            <th className="py-3 px-2">Date Applied</th>
+            <th className="py-3 px-2">Link</th>
+            <th className="py-3 px-2">Notes</th>
+            <th className="py-3 px-2">Action</th>
           </tr>
         </thead>
         <tbody className="w-full">
@@ -252,6 +253,7 @@ function App() {
           ))}
         </tbody>
       </table>
+      </div>
     </main>
   );
 }
