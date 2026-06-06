@@ -19,11 +19,22 @@ router.patch('/:id', async(req, res) => {
         const updatedJob = await JobModel.findByIdAndUpdate(
             req.params.id,
             { $set: req.body},
-            {new: true, runValidators: true}
+            {returnDocument: true, runValidators: true}
         );
 
         if (!updatedJob) return res.status(404).send("Item not found");
         res.status(200).json(updatedJob);
+    } catch (error){
+        res.status(400).json({message: error.message})
+    }
+})
+
+router.delete("/:id", async (req, res) => {
+    try{
+        const deleteJob = await JobModel.findByIdAndDelete(req.params.id)
+
+        if(!deleteJob) return res.status(404).send("Item not found");
+        res.status(200).send("Job deleted sucessfully")
     } catch (error){
         res.status(400).json({message: error.message})
     }
