@@ -3,6 +3,7 @@ import "./App.css";
 import axios from "axios";
 import { useEffect } from "react";
 
+
 function App() {
   const [jobs, setJob] = useState([]);
 
@@ -21,17 +22,20 @@ function App() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const stats = {
-    total: jobs.length,
-    applied: jobs.filter((job) => job.status === "Applied").length,
-    interview: jobs.filter((job) => job.status === "Interview").length,
-    offer: jobs.filter((job) => job.status === "Offer").length,
-    rejected: jobs.filter((job) => job.status === "Rejected").length,
-  };
+  // const stats = {
+  //   total: jobs.length,
+  //   applied: jobs.filter((job) => job.status === "Applied").length,
+  //   interview: jobs.filter((job) => job.status === "Interview").length,
+  //   offer: jobs.filter((job) => job.status === "Offer").length,
+  //   rejected: jobs.filter((job) => job.status === "Rejected").length,
+  // };
+
+
+  const API = import.meta.env.API_URL
 
   useEffect(() => {
     axios
-      .get("http://localhost:5050/jobs")
+      .get(`${API}/jobs`)
       .then((response) => {
         setJob(response.data);
         setLoading(false);
@@ -47,7 +51,7 @@ function App() {
 
     setLoading(true);
     axios
-      .post("http://localhost:5050/jobs", formData)
+      .post(`${API}/jobs`, formData)
       .then((response) => {
         console.log("Success");
         setJob([...jobs, response.data]);
@@ -69,7 +73,7 @@ function App() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5050/jobs/${id}`)
+      .delete(`${API}/jobs/${id}`)
       .then((response) => {
         console.log(response);
         setJob(jobs.filter((job) => job._id !== id));
@@ -81,7 +85,7 @@ function App() {
 
   const handleStatusChange = (id, newStatus) => {
     axios
-      .patch(`http://localhost:5050/jobs/${id}`, { status: newStatus })
+      .patch(`${API}/jobs/${id}`, { status: newStatus })
       .then((response) => {
         setJob(jobs.map((job) => (job._id === id ? response.data : job)));
       })
@@ -101,7 +105,7 @@ function App() {
   return (
     <main className="p-5 overflow-hidden">
       <h1 className="text-3xl font-bold">Welcome Back Javascript</h1>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 my-4">
+      {/* <div className="grid grid-cols-2 md:grid-cols-5 gap-3 my-4">
         <div className="border rounded p-3 text-center">
           <p className="text-2xl font-bold">{stats.total}</p>
           <p className="text-sm text-gray-500">Total</p>
@@ -124,7 +128,7 @@ function App() {
           <p className="text-2xl font-bold text-red-500">{stats.rejected}</p>
           <p className="text-sm text-gray-500">Rejected</p>
         </div>
-      </div>
+      </div> */}
       <form className="w-2xs border-2 p-3 mt-4" onSubmit={handleSubmit}>
         <h1 className="text-xl font-semibold">Job Track Form</h1>
         <div className="flex flex-col gap-3">
