@@ -64,5 +64,5 @@ VITE_API_URL=http://localhost:5050
 
 ## 👤 Author
 **Your Name**  
-GitHub: [@yourusername](https://github.com/Jafarscript)  
-LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com)
+GitHub: [@Jafarscript](https://github.com/Jafarscript)  
+LinkedIn: [linkedin.com/in/jafar-li-hammed-8817a91b4](https://www.linkedin.com/in/jafar-li-hammed-8817a91b4/)
