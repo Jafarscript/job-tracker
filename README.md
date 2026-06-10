@@ -3,10 +3,10 @@
 A full stack web app to track job applications, update their status, and monitor your progress through a live dashboard.
 
 ## 🔗 Live Demo
-[job-tracker.vercel.app](https://your-link.vercel.app)
+[job-tracker.vercel.app](https://job-tracker-three-steel.vercel.app/)
 
 ## 📸 Screenshot
-![App Screenshot](./screenshot.png)
+![App Screenshot](https://res.cloudinary.com/dvo8xhx6r/image/upload/v1781104039/zvfwvwoer4baqwh47axn.png)
 
 ## ✨ Features
 - Add and manage job applications
