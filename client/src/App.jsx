@@ -267,7 +267,7 @@ function App() {
                       <td className="px-6 py-4 whitespace-nowrap text-right">
                         <button
                           onClick={() => handleDelete(job._id)}
-                          className="text-xs text-slate-600 hover:text-red-400 font-medium opacity-0 lg:group-hover:opacity-100 transition-all duration-150 px-2 py-1 rounded hover:bg-red-500/10"
+                          className="text-xs lg:text-slate-600 text-red-400 lg:hover:text-red-400 font-medium opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-150 px-2 py-1 rounded bg-red-500/10 lg:bg-transparent lg:hover:bg-red-500/10"
                         >
                           Delete
                         </button>
